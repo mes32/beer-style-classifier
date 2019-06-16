@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setup server-side routes
-const searchStyleRouter = require('./routes/searchStyle.router.tsx');
+const searchStyleRouter = require('./routes/searchStyle.router.tsx')(express);
 app.use('/api/search-style', searchStyleRouter);
 
 // Serve the static site files
