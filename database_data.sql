@@ -37,21 +37,20 @@ INSERT
         , (33, 'Wood Beer')
         , (34, 'Specialty Beer');
 
-INSERT 
-    INTO style 
-        (
-            category_id
-            , letter 
-            , style_name 
-            , ibu_min
-            , ibu_max 
-            , srm_min 
-            , srm_max 
-            , og_min 
-            , og_max 
-            , fg_min 
-            , fg_max
-        )
-    VALUES
-        (1, 'A', 'American Light Lager', 8, 12, 2, 3, 1.028, 1.040, 0.998, 1.008)
-        , (1, 'B', 'American Lager', 8, 20, 2.5, 5, 1.042, 1.055, 1.006, 1.012);
+INSERT INTO style 
+    (
+        category_id
+        , letter 
+        , style_name 
+        , ibu_min
+        , ibu_max 
+        , srm_min 
+        , srm_max 
+        , og_min 
+        , og_max 
+        , fg_min 
+        , fg_max
+    )
+VALUES
+    (1, 'A', 'American Light Lager', 8, 12, 2, 3, 1.028, 1.040, 0.998, 1.008)
+    , (1, 'B', 'American Lager', 8, 20, 2.5, 5, 1.042, 1.055, 1.006, 1.012);

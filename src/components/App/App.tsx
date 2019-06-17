@@ -7,11 +7,11 @@ import VitalStatisticsForm from '../VitalStatisticsForm/VitalStatisticsForm';
 
 const App: React.FC = () => {
 
-    const searchBeerStyles = (state: VitalStatisticsForm['state']) => {
-        console.log(state);
+    const searchBeerStyles = (vitalStats: VitalStatisticsForm['state']) => {
+        console.log(vitalStats);
         try {
-            axios.get('/api/search-style').then(response => {
-                console.log(response);
+            axios.get('/api/search-style', { params: vitalStats }).then(response => {
+                console.log(response.data);
             });
             
         } catch (error) {
