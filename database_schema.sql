@@ -24,6 +24,8 @@ CREATE TABLE style (
     , og_max NUMERIC NOT NULL CHECK(og_max >= 0 AND og_max >= og_min)
     , fg_min NUMERIC NOT NULL CHECK(fg_min >= 0)
     , fg_max NUMERIC NOT NULL CHECK(fg_max >= 0 AND fg_max >= fg_min)
+    , abv_min NUMERIC NOT NULL CHECK(abv_min >= 0 AND abv_min <= 100)
+    , abv_max NUMERIC NOT NULL CHECK(abv_max >= 0 AND abv_max <= 100 AND abv_max >= abv_min)
     , CONSTRAINT min_gravity_drops CHECK(fg_min <= og_min)
     , CONSTRAINT max_gravity_drops CHECK(fg_max <= og_max)
 );

@@ -11,8 +11,10 @@ class BeerStyle {
     ogMax: number;
     fgMin: number;
     fgMax: number;
+    abvMin: number;
+    abvMax: number;
 
-    constructor(id: number, code: string, category: string, name: string, ibuMin: number, ibuMax: number, srmMin: number, srmMax: number, ogMin: number, ogMax: number, fgMin: number, fgMax: number) {
+    constructor(id: number, code: string, category: string, name: string, ibuMin: number, ibuMax: number, srmMin: number, srmMax: number, ogMin: number, ogMax: number, fgMin: number, fgMax: number, abvMin: number, abvMax: number) {
         this.id = id;
         this.code = code;
         this.category = category;
@@ -25,6 +27,8 @@ class BeerStyle {
         this.ogMax = ogMax;
         this.fgMin = fgMin;
         this.fgMax = fgMax;
+        this.abvMin = abvMin;
+        this.abvMax = abvMax;
     }
 
     static loadQuery(query: Array<any>) {
@@ -42,7 +46,9 @@ class BeerStyle {
                     row.og_min,
                     row.og_max,
                     row.fg_min,
-                    row.fg_max
+                    row.fg_max,
+                    row.abv_min,
+                    row.abv_max
                 );
             });
     }

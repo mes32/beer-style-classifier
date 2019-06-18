@@ -33,6 +33,9 @@ const BeerStyleList: React.FC<BeerStyleListProps> = (props) => {
                         <th>
                             F.G.
                         </th>
+                        <th>
+                            ABV
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +61,9 @@ const BeerStyleList: React.FC<BeerStyleListProps> = (props) => {
                             </td>
                             <td>
                                 [{style.fgMin}, {style.fgMax}]
+                            </td>
+                            <td>
+                                [{style.abvMin}, {style.abvMax}]
                             </td>
                         </tr>
                     )}

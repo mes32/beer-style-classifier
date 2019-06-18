@@ -14,6 +14,7 @@ module.exports = (express) => {
         const srm = parseNumber(req.query.srm);
         const og = parseNumber(req.query.og);
         const fg = parseNumber(req.query.fg);
+        const abv = parseNumber(req.query.abv);
         
         let selectSQL = `
         SELECT
@@ -29,17 +30,20 @@ module.exports = (express) => {
             , og_max
             , fg_min
             , fg_max
+            , abv_min
+            , abv_max
         FROM style
         JOIN style_category ON style.category_id = style_category.id
             WHERE ($1::numeric IS NULL OR $1 >= ibu_min AND $1 <= ibu_max)
             AND ($2::numeric IS NULL OR $2 >= srm_min AND $2 <= srm_max)
             AND ($3::numeric IS NULL OR $3 >= og_min AND $3 <= og_max)
             AND ($4::numeric IS NULL OR $4 >= fg_min AND $4 <= fg_max)
+            AND ($5::numeric IS NULL OR $5 >= abv_min AND $5 <= abv_max)
         ORDER BY code
         ;
         `;
 
-        pool.query(selectSQL, [ibu, srm, og, fg]).then(queryResult => {
+        pool.query(selectSQL, [ibu, srm, og, fg, abv]).then(queryResult => {
             res.send(queryResult.rows);
         }).catch(queryError => {
             const errorMessage = `SQL error using route GET /api/search-style. ${queryError}`;

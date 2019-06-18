@@ -9,6 +9,7 @@ interface VitalStatisticsFormState {
     srm: string;
     og: string;
     fg: string;
+    abv: string;
 };
 
 class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStatisticsFormState> {
@@ -16,7 +17,8 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         ibu: '',
         srm: '',
         og: '',
-        fg: ''
+        fg: '',
+        abv: ''
     };
 
     changeIBU = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,6 +53,14 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         });
     };
 
+    changeABV = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            abv: event.target.value
+        }, () => {
+            this.props.searchBeerStyles(this.state);
+        });
+    };
+
     render() {
         return (
             <div>
@@ -72,6 +82,10 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
                         <tr>
                             <td>F.G.</td>
                             <td><input name="fg" type="number" onChange={this.changeFG} value={this.state.fg} /></td>
+                        </tr>
+                        <tr>
+                            <td>ABV</td>
+                            <td><input name="abv" type="number" onChange={this.changeABV} value={this.state.abv} /></td>
                         </tr>
                     </tbody>
                 </table>

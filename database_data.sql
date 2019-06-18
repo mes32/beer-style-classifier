@@ -50,7 +50,9 @@ INSERT INTO style
         , og_max 
         , fg_min 
         , fg_max
+        , abv_min
+        , abv_max
     )
 VALUES
-    (1, 'A', 'American Light Lager', 8, 12, 2, 3, 1.028, 1.040, 0.998, 1.008)
-    , (1, 'B', 'American Lager', 8, 20, 2.5, 5, 1.042, 1.055, 1.006, 1.012);
+    (1, 'A', 'American Light Lager', 8, 12, 2, 3, 1.028, 1.040, 0.998, 1.008, 2.8, 4.2)
+    , (1, 'B', 'American Lager', 8, 20, 2.5, 5, 1.042, 1.055, 1.006, 1.012, 4.2, 5.3);
