@@ -1,10 +1,20 @@
 import React from 'react';
 
-const BeerStyleList: React.FC = () => {
+import BeerStyle from '../../classes/BeerStyle';
+
+interface BeerStyleListProps {
+    styleList: Array<BeerStyle>;
+};
+
+const BeerStyleList: React.FC<BeerStyleListProps> = (props) => {
     return (
         <div>
             <h3>Predicted Beer Styles</h3>
-            <p>[ BeerStyleList ]</p>
+            <ul>
+                {props.styleList.map(style => 
+                    <li key={style.id}>{style.name}</li>    
+                )}
+            </ul>
         </div>
     );
 }

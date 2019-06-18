@@ -22,30 +22,36 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
     changeIBU = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             ibu: event.target.value
+        }, () => {
+            this.props.searchBeerStyles(this.state);
         });
     };
 
     changeSRM = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             srm: event.target.value
+        }, () => {
+            this.props.searchBeerStyles(this.state);
         });
     };
 
     changeOG = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             og: event.target.value
+        }, () => {
+            this.props.searchBeerStyles(this.state);
         });
     };
 
     changeFG = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             fg: event.target.value
+        }, () => {
+            this.props.searchBeerStyles(this.state);
         });
     };
 
     render() {
-        this.props.searchBeerStyles(this.state);
-
         return (
             <div>
                 <h3>Vital Statistics</h3>
