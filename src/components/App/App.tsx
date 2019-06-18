@@ -19,7 +19,6 @@ const App: React.FC<BeerStyleListProps> = () => {
         try {
             if (vitalStats.ibu || vitalStats.srm || vitalStats.og || vitalStats.fg) {
                 axios.get('/api/search-style', { params: vitalStats }).then(response => {
-                    console.log(response.data);
                     const styleList = BeerStyle.loadQuery(response.data);
                     setStyleList(styleList);
                 });

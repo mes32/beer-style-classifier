@@ -21,12 +21,21 @@ module.exports = (express) => {
             , (category_id || letter) AS code
             , category_name AS category
             , style_name AS name
+            , ibu_min
+            , ibu_max
+            , srm_min
+            , srm_max
+            , og_min
+            , og_max
+            , fg_min
+            , fg_max
         FROM style
         JOIN style_category ON style.category_id = style_category.id
             WHERE ($1::numeric IS NULL OR $1 >= ibu_min AND $1 <= ibu_max)
             AND ($2::numeric IS NULL OR $2 >= srm_min AND $2 <= srm_max)
             AND ($3::numeric IS NULL OR $3 >= og_min AND $3 <= og_max)
             AND ($4::numeric IS NULL OR $4 >= fg_min AND $4 <= fg_max)
+        ORDER BY code
         ;
         `;
 

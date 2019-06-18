@@ -10,11 +10,59 @@ const BeerStyleList: React.FC<BeerStyleListProps> = (props) => {
     return (
         <div>
             <h3>Predicted Beer Styles</h3>
-            <ul>
-                {props.styleList.map(style => 
-                    <li key={style.id}>{style.name}</li>    
-                )}
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            IBUs
+                        </th>
+                        <th>
+                            SRM
+                        </th>
+                        <th>
+                            O.G.
+                        </th>
+                        <th>
+                            F.G.
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.styleList.map(style =>
+                        <tr key={style.id}>
+                            <td>
+                                {style.code}.
+                            </td>
+                            <td>
+                                {style.name}
+                            </td>
+                            <td>
+                                {style.category}
+                            </td>
+                            <td>
+                                [{style.ibuMin}, {style.ibuMax}]
+                            </td>
+                            <td>
+                                [{style.srmMin}, {style.srmMax}]
+                            </td>
+                            <td>
+                                [{style.ogMin}, {style.ogMax}]
+                            </td>
+                            <td>
+                                [{style.fgMin}, {style.fgMax}]
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
     );
 }
