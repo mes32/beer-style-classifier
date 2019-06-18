@@ -39,7 +39,7 @@ module.exports = (express) => {
             AND ($3::numeric IS NULL OR $3 >= og_min AND $3 <= og_max)
             AND ($4::numeric IS NULL OR $4 >= fg_min AND $4 <= fg_max)
             AND ($5::numeric IS NULL OR $5 >= abv_min AND $5 <= abv_max)
-        ORDER BY code
+        ORDER BY category_id, letter
         ;
         `;
 

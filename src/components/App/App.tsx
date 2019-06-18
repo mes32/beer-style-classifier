@@ -15,10 +15,10 @@ const EMPTY_STYLE_LIST = Array<BeerStyle>();
 const App: React.FC<BeerStyleListProps> = () => {
     const [styleList, setStyleList] = useState(EMPTY_STYLE_LIST);
 
-    const searchBeerStyles = (vitalStats: VitalStatisticsForm['state']) => {
+    const searchBeerStyles = (stats: VitalStatisticsForm['state']) => {
         try {
-            if (vitalStats.ibu || vitalStats.srm || vitalStats.og || vitalStats.fg) {
-                axios.get('/api/search-style', { params: vitalStats }).then(response => {
+            if (stats.ibu || stats.srm || stats.og || stats.fg || stats.abv) {
+                axios.get('/api/search-style', { params: stats }).then(response => {
                     const styleList = BeerStyle.loadQuery(response.data);
                     setStyleList(styleList);
                 });
