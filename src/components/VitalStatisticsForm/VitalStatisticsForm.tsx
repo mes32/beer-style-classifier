@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import SRMBadge from '../SRMBadge/SRMBadge';
+
 interface VitalStatisticsFormProps {
     searchBeerStyles: (state: VitalStatisticsFormState) => void;
 };
@@ -74,6 +76,7 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
                         <tr>
                             <td>SRM</td>
                             <td><input name="srm" type="number" onChange={this.changeSRM} value={this.state.srm} /></td>
+                            <td><SRMBadge srm={Number(this.state.srm)} /></td>
                         </tr>
                         <tr>
                             <td>O.G.</td>
