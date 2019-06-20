@@ -122,3 +122,24 @@ VALUES
     , (22, 'B', 'American Strong Ale', 50, 100, 7, 19, 1.062, 1.090, 1.014, 1.024, 6.3, 10.0)
     , (22, 'C', 'American Barleywine', 50, 100, 10, 19, 1.080, 1.120, 1.016, 1.030, 8.0, 12.0)
     ;
+
+INSERT INTO characteristic_ingredient
+    (ingredient_name)
+VALUES
+    ('2-row Barley Malt')
+    , ('6-row Barley Malt')
+    , ('Ale Yeast')
+    , ('Corn Adjunct')
+    , ('Lager Yeast')
+    , ('Rice Adjunct')
+    , ('Weissbier Yeast')
+    , ('Wheat');
+
+INSERT INTO ingredient_in_style
+    (style_id, ingredient_id)
+VALUES
+    (1, 1)
+    , (1, 2)
+    , (1, 4)
+    , (1, 5)
+    , (1, 6);
