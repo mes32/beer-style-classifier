@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BeerStyle from '../../classes/BeerStyle';
+import SRMBadge from '../SRMBadge/SRMBadge';
 
 interface BeerStyleListProps {
     styleList: Array<BeerStyle>;
@@ -42,7 +43,7 @@ const BeerStyleList: React.FC<BeerStyleListProps> = (props) => {
                 </thead>
                 <tbody>
                     {props.styleList.map(style =>
-                        <tr key={style.id}>
+                        <tr key={style.code}>
                             <td>
                                 {style.code}.
                             </td>
@@ -57,6 +58,7 @@ const BeerStyleList: React.FC<BeerStyleListProps> = (props) => {
                             </td>
                             <td>
                                 [{style.srmMin}, {style.srmMax}]
+                                <SRMBadge srm={(Number(style.srmMin) + Number(style.srmMax)) / 2.0} />
                             </td>
                             <td>
                                 [{style.ogMin}, {style.ogMax}]

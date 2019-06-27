@@ -8,11 +8,12 @@ let srmDivStyle = {
     height: '1rem',
     width: '1rem',
     backgroundColor: 'inherit',
-    borderRadius: '0.5rem'
+    borderRadius: '0.5rem',
+    display: 'inline-block'
 };
 
 const srmToHex = (srm: number) => {
-    if (srm && srm != 0) {
+    if (srm && srm !== 0) {
         let r = 0;
         let g = 0;
         let b = 0;
@@ -69,7 +70,7 @@ const srmToHex = (srm: number) => {
 const doubleToHex = (doubleNum: number) => {
     var hexText = doubleNum.toString(16);
     var point = hexText.indexOf('.');
-    if (point != -1) {
+    if (point !== -1) {
         hexText = hexText.substring(0, point);
     }
     while (hexText.length < 2) {
