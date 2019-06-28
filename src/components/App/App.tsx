@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import './App.css';
 import BeerStyle from '../../classes/BeerStyle';
 import BeerStyleList from '../BeerStyleList/BeerStyleList';
 import CategoryForm from '../CategoryForm/CategoryForm';
+import AppHeader from '../AppHeader/AppHeader';
 import VitalStatisticsForm from '../VitalStatisticsForm/VitalStatisticsForm';
 
 interface BeerStyleListProps {
@@ -72,9 +72,7 @@ const App: React.FC<BeerStyleListProps> = () => {
 
     return (
         <div>
-            <header>
-                <h1>Beer Style Classifier</h1>
-            </header>
+            <AppHeader />
             <VitalStatisticsForm search={searchFromStatistics} />
             <CategoryForm search={searchFromCategory} />
             <BeerStyleList styleList={styleList} />
