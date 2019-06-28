@@ -26,7 +26,7 @@ const App: React.FC<BeerStyleListProps> = () => {
     const [vitalStatistics, setVitalStatistics] = useState(EMPTY_VITAL_STATS);
     const [category, setCategory] = useState(DEFAULT_CATEGORY);
 
-    const searchBeerStyles = (stats: VitalStatisticsForm['state']) => {
+    const searchFromStatistics = (stats: VitalStatisticsForm['state']) => {
         setVitalStatistics(stats);
         const params = {
             ...stats,
@@ -48,13 +48,35 @@ const App: React.FC<BeerStyleListProps> = () => {
         }
     };
 
+    const searchFromCategory = (category: string) => {
+        setCategory(category);
+        const params = {
+            ...vitalStatistics,
+            category
+        };
+        try {
+            if (category || vitalStatistics.ibu || vitalStatistics.srm || vitalStatistics.og || vitalStatistics.fg || vitalStatistics.abv) {
+                axios.get('/api/search-style', { params }).then(response => {
+                    const styleList = BeerStyle.loadQuery(response.data);
+                    setStyleList(styleList);
+                });
+            } else {
+                setStyleList(EMPTY_STYLE_LIST);
+            }
+        } catch (error) {
+            const errorMessage = `Unable to fetch beer styles from server. ${error}`;
+            console.log(errorMessage);
+            alert(errorMessage);
+        }
+    };
+
     return (
         <div>
             <header>
                 <h1>Beer Style Classifier</h1>
             </header>
-            <VitalStatisticsForm searchBeerStyles={searchBeerStyles} />
-            <CategoryForm setCategory={setCategory} />
+            <VitalStatisticsForm search={searchFromStatistics} />
+            <CategoryForm search={searchFromCategory} />
             <BeerStyleList styleList={styleList} />
         </div>
     );

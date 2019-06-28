@@ -7,7 +7,7 @@ interface Category {
 };
 
 interface CategoryFormProps {
-    setCategory: (selected: string) => void;
+    search: (selected: string) => void;
 };
 
 interface CategoryFormState {
@@ -28,8 +28,8 @@ class CategoryForm extends Component<CategoryFormProps, CategoryFormState> {
     }
 
     handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        this.setState({ ...this.state, selected: event.target.value });
-        this.props.setCategory(event.target.value);
+        this.setState({ selected: event.target.value });
+        this.props.search(event.target.value);
     }
 
     render() {
@@ -37,9 +37,9 @@ class CategoryForm extends Component<CategoryFormProps, CategoryFormState> {
             <div>
                 <h3>Category</h3>
                 <select value={this.state.selected} onChange={this.handleSelect}>
-                    <option value="">-- Select a Category --</option>
+                    <option value="">[ select a category ]</option>
                     {this.state.categoryList.map(category => {
-                        return <option key={category.id} value={category.id}>{category.name}</option>
+                        return <option key={category.id} value={category.id}>{category.id} - {category.name}</option>
                     })}
                 </select>
             </div>
