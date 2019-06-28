@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Setup server-side routes
 const searchStyleRouter = require('./routes/searchStyle.router.tsx')(express);
 app.use('/api/search-style', searchStyleRouter);
+const categoryRouter = require('./routes/category.router.tsx')(express);
+app.use('/api/category', categoryRouter);
 
 // Serve the static site files
 app.use(express.static('build'));

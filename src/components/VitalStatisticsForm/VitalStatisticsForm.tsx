@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SRMBadge from '../SRMBadge/SRMBadge';
 
 interface VitalStatisticsFormProps {
-    setVitalStatistics: (state: VitalStatisticsFormState) => void;
+    searchBeerStyles: (state: VitalStatisticsFormState) => void;
 };
 
 interface VitalStatisticsFormState {
@@ -27,7 +27,7 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         this.setState({
             ibu: event.target.value
         }, () => {
-                this.props.setVitalStatistics(this.state);
+            this.props.searchBeerStyles(this.state);
         });
     };
 
@@ -35,7 +35,7 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         this.setState({
             srm: event.target.value
         }, () => {
-            this.props.setVitalStatistics(this.state);
+            this.props.searchBeerStyles(this.state);
         });
     };
 
@@ -43,7 +43,7 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         this.setState({
             og: event.target.value
         }, () => {
-            this.props.setVitalStatistics(this.state);
+            this.props.searchBeerStyles(this.state);
         });
     };
 
@@ -51,7 +51,7 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         this.setState({
             fg: event.target.value
         }, () => {
-            this.props.setVitalStatistics(this.state);
+            this.props.searchBeerStyles(this.state);
         });
     };
 
@@ -59,7 +59,7 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         this.setState({
             abv: event.target.value
         }, () => {
-            this.props.setVitalStatistics(this.state);
+            this.props.searchBeerStyles(this.state);
         });
     };
 

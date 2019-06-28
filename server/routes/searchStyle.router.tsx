@@ -16,7 +16,7 @@ module.exports = (express) => {
         const fg = parseNumber(req.query.fg);
         const abv = parseNumber(req.query.abv);
         
-        let selectSQL = `
+        const selectSQL = `
         SELECT
             style.id
             , (category_id || letter) AS code
