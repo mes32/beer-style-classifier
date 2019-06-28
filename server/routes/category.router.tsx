@@ -6,7 +6,6 @@ module.exports = (express) => {
         let selectSQL = `
         SELECT id, category_name AS name FROM style_category;
         `;
-
         pool.query(selectSQL).then(queryResult => {
             console.log(queryResult.rows);
             res.send(queryResult.rows);

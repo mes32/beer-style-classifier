@@ -28,9 +28,13 @@ const App: React.FC<BeerStyleListProps> = () => {
 
     const searchBeerStyles = (stats: VitalStatisticsForm['state']) => {
         setVitalStatistics(stats);
+        const params = {
+            ...stats,
+            category
+        };
         try {
             if (category || stats.ibu || stats.srm || stats.og || stats.fg || stats.abv) {
-                axios.get('/api/search-style', { params: stats }).then(response => {
+                axios.get('/api/search-style', { params }).then(response => {
                     const styleList = BeerStyle.loadQuery(response.data);
                     setStyleList(styleList);
                 });

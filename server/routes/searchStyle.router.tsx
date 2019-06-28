@@ -10,6 +10,7 @@ module.exports = (express) => {
     }
 
     router.get('/', (req, res) => {
+        const category = parseNumber(req.query.category);
         const ibu = parseNumber(req.query.ibu);
         const srm = parseNumber(req.query.srm);
         const og = parseNumber(req.query.og);
@@ -34,16 +35,17 @@ module.exports = (express) => {
             , abv_max
         FROM style
         JOIN style_category ON style.category_id = style_category.id
-            WHERE ($1::numeric IS NULL OR $1 >= ibu_min AND $1 <= ibu_max)
-            AND ($2::numeric IS NULL OR $2 >= srm_min AND $2 <= srm_max)
-            AND ($3::numeric IS NULL OR $3 >= og_min AND $3 <= og_max)
-            AND ($4::numeric IS NULL OR $4 >= fg_min AND $4 <= fg_max)
-            AND ($5::numeric IS NULL OR $5 >= abv_min AND $5 <= abv_max)
+            WHERE ($1::numeric IS NULL OR $1 = style_category.id)
+            AND ($2::numeric IS NULL OR $2 >= ibu_min AND $2 <= ibu_max)
+            AND ($3::numeric IS NULL OR $3 >= srm_min AND $3 <= srm_max)
+            AND ($4::numeric IS NULL OR $4 >= og_min AND $4 <= og_max)
+            AND ($5::numeric IS NULL OR $5 >= fg_min AND $5 <= fg_max)
+            AND ($6::numeric IS NULL OR $6 >= abv_min AND $6 <= abv_max)
         ORDER BY category_id, letter
         ;
         `;
 
-        pool.query(selectSQL, [ibu, srm, og, fg, abv]).then(queryResult => {
+        pool.query(selectSQL, [category, ibu, srm, og, fg, abv]).then(queryResult => {
             res.send(queryResult.rows);
         }).catch(queryError => {
             const errorMessage = `SQL error using route GET /api/search-style. ${queryError}`;
