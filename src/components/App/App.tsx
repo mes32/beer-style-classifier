@@ -4,7 +4,7 @@ import axios from 'axios';
 import BeerStyle from '../../classes/BeerStyle';
 import BeerStyleList from '../BeerStyleList/BeerStyleList';
 import CategoryForm from '../CategoryForm/CategoryForm';
-import AppHeader from '../AppHeader/AppHeader';
+import Header from '../Header';
 import VitalStatisticsForm from '../VitalStatisticsForm/VitalStatisticsForm';
 
 interface BeerStyleListProps {
@@ -72,7 +72,7 @@ const App: React.FC<BeerStyleListProps> = () => {
 
     return (
         <div>
-            <AppHeader />
+            <Header />
             <VitalStatisticsForm search={searchFromStatistics} />
             <CategoryForm search={searchFromCategory} />
             <BeerStyleList styleList={styleList} />

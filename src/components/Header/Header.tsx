@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 
-import Header from '../shared/Header';
+import HeaderStyle from './style';
 
 const AppHeader: FunctionComponent = () => {
     return (
-        <Header>
+        <HeaderStyle>
             <h1>Beer Style Classifier</h1>
-        </Header>
+        </HeaderStyle>
     );
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = styled.header`
+const HeaderStyle = styled.header`
     h1 {
         margin: 0;
     }
@@ -11,4 +11,4 @@ const Header = styled.header`
     background-color: #2f3440;
 `;
 
-export default Header;
+export default HeaderStyle;
