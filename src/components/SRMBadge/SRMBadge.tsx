@@ -1,15 +1,9 @@
 import React from 'react';
 
+import ColorDot from '../shared/ColorDot';
+
 interface SRMBadgeProps {
     srm: number;
-};
-
-let srmDivStyle = {
-    height: '1rem',
-    width: '1rem',
-    backgroundColor: 'inherit',
-    borderRadius: '0.5rem',
-    display: 'inline-block'
 };
 
 const srmToHex = (srm: number) => {
@@ -80,10 +74,8 @@ const doubleToHex = (doubleNum: number) => {
 }
 
 const SRMBadge: React.FC<SRMBadgeProps> = (props) => {
-    srmDivStyle = { ...srmDivStyle, backgroundColor: srmToHex(props.srm) };
     return (
-        <div style={srmDivStyle}>
-        </div>
+        <ColorDot color={srmToHex(props.srm)} />
     );
 }
 
