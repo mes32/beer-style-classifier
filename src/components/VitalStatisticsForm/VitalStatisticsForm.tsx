@@ -23,41 +23,10 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
         abv: ''
     };
 
-    changeIBU = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            ibu: event.target.value
-        }, () => {
-            this.props.search(this.state);
-        });
-    };
-
-    changeSRM = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            srm: event.target.value
-        }, () => {
-            this.props.search(this.state);
-        });
-    };
-
-    changeOG = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            og: event.target.value
-        }, () => {
-            this.props.search(this.state);
-        });
-    };
-
-    changeFG = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            fg: event.target.value
-        }, () => {
-            this.props.search(this.state);
-        });
-    };
-
-    changeABV = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            abv: event.target.value
+            ...this.state,
+            [event.target.name]: event.target.value
         }, () => {
             this.props.search(this.state);
         });
@@ -71,24 +40,24 @@ class VitalStatisticsForm extends Component<VitalStatisticsFormProps, VitalStati
                     <tbody>
                         <tr>
                             <td>IBUs</td>
-                            <td><input name="ibu" type="number" onChange={this.changeIBU} value={this.state.ibu} /></td>
+                            <td><input name="ibu" type="number" onChange={this.handleChange} value={this.state.ibu} /></td>
                         </tr>
                         <tr>
                             <td>SRM</td>
-                            <td><input name="srm" type="number" onChange={this.changeSRM} value={this.state.srm} /></td>
+                            <td><input name="srm" type="number" onChange={this.handleChange} value={this.state.srm} /></td>
                             <td><SRMBadge srm={Number(this.state.srm)} /></td>
                         </tr>
                         <tr>
                             <td>O.G.</td>
-                            <td><input name="og" type="number" onChange={this.changeOG} value={this.state.og} /></td>
+                            <td><input name="og" type="number" onChange={this.handleChange} value={this.state.og} /></td>
                         </tr>
                         <tr>
                             <td>F.G.</td>
-                            <td><input name="fg" type="number" onChange={this.changeFG} value={this.state.fg} /></td>
+                            <td><input name="fg" type="number" onChange={this.handleChange} value={this.state.fg} /></td>
                         </tr>
                         <tr>
                             <td>ABV</td>
-                            <td><input name="abv" type="number" onChange={this.changeABV} value={this.state.abv} /></td>
+                            <td><input name="abv" type="number" onChange={this.handleChange} value={this.state.abv} /></td>
                         </tr>
                     </tbody>
                 </table>
