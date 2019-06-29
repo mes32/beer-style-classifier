@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-interface ColorDotProps {
+interface SRMBadgeProps {
     color: string;
 };
 
-const ColorDot: FunctionComponent<ColorDotProps> = styled.div`
+const SRMBadge: FunctionComponent<SRMBadgeProps> = styled.div`
     height: 1rem;
     width: 1rem;
 
@@ -14,4 +14,4 @@ const ColorDot: FunctionComponent<ColorDotProps> = styled.div`
     display: inline-block;
 `;
 
-export default ColorDot;
+export default SRMBadge;

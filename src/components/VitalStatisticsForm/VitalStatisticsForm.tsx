@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import SRMBadge from '../SRMBadge/SRMBadge';
+import SRMBadge from '../SRMBadge';
 
 interface VitalStatisticsFormProps {
     search: (state: VitalStatisticsFormState) => void;

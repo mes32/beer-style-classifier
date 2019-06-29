@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ColorDot from '../shared/ColorDot';
+import SRMBadgeStyle from './style';
 
 interface SRMBadgeProps {
     srm: number;
@@ -75,7 +75,7 @@ const doubleToHex = (doubleNum: number) => {
 
 const SRMBadge: React.FC<SRMBadgeProps> = (props) => {
     return (
-        <ColorDot color={srmToHex(props.srm)} />
+        <SRMBadgeStyle color={srmToHex(props.srm)} />
     );
 }
 

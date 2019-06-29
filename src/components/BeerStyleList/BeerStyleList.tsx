@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BeerStyle from '../../classes/BeerStyle';
-import SRMBadge from '../SRMBadge/SRMBadge';
+import SRMBadge from '../SRMBadge';
 
 interface BeerStyleListProps {
     styleList: Array<BeerStyle>;
