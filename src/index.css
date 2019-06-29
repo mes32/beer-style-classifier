@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
-h3 {
+h2, h3, h4, h5 {
   color: #2f3440;
+  margin: 0;
+  padding-top: 1.2rem;
+  padding-bottom: 0.8rem;
 }

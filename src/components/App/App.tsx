@@ -5,6 +5,7 @@ import BeerStyle from '../../classes/BeerStyle';
 import BeerStyleList from '../BeerStyleList/BeerStyleList';
 import CategoryForm from '../CategoryForm/CategoryForm';
 import Header from '../Header';
+import PageWrapper from '../PageWrapper';
 import VitalStatisticsForm from '../VitalStatisticsForm/VitalStatisticsForm';
 
 interface BeerStyleListProps {
@@ -73,9 +74,11 @@ const App: React.FC<BeerStyleListProps> = () => {
     return (
         <div>
             <Header />
-            <VitalStatisticsForm search={searchFromStatistics} />
-            <CategoryForm search={searchFromCategory} />
-            <BeerStyleList styleList={styleList} />
+            <PageWrapper>
+                <VitalStatisticsForm search={searchFromStatistics} />
+                <CategoryForm search={searchFromCategory} />
+                <BeerStyleList styleList={styleList} />
+            </PageWrapper>
         </div>
     );
 }

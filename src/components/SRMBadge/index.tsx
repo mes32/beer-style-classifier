@@ -1,2 +1,1 @@
-import SRMBadge from './SRMBadge';
-export default SRMBadge;
+export { default } from  './SRMBadge';
