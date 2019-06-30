@@ -2,7 +2,8 @@ import React, { FunctionComponent } from 'react';
 
 import HeaderStyle from './style';
 
-const AppHeader: FunctionComponent = () => {
+
+const Header: FunctionComponent = () => {
     return (
         <HeaderStyle>
             <h1>Beer Style Classifier</h1>
@@ -10,4 +11,4 @@ const AppHeader: FunctionComponent = () => {
     );
 }
 
-export default AppHeader;
+export default Header;

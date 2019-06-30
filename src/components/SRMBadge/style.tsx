@@ -1,11 +1,10 @@
-import { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 interface SRMBadgeProps {
     color: string;
 };
 
-const SRMBadge: FunctionComponent<SRMBadgeProps> = styled.div`
+const SRMBadge = styled.div<SRMBadgeProps>`
     height: 1rem;
     width: 1rem;
 

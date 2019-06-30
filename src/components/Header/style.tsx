@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../themes/Theme';
 
 const HeaderStyle = styled.header`
     h1 {
@@ -6,7 +7,7 @@ const HeaderStyle = styled.header`
         color: #82a1c0;
     }
 
-    padding: 1rem 40px;
+    padding: 1rem ${theme.leftMargin};
     background-color: #2f3440;
 `;
 
