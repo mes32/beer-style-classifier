@@ -62,8 +62,8 @@ heroku pg:psql -f database_data.sql
 
 ### Completed Features
 - [x] Allows users to search for matching beer styles based on a beer's International Bitterness Units (IBUs), color in Standard Reference Method units (SRM), original gravity (O.G.), final gravity (F.G.), and alcohol by volume (ABV)
-- [x] Utilizes TypeScript style JavaScript
-- [x] Utilizes React FunctionComponents
+- [x] Utilizes TypeScript dialect of JavaScript
+- [x] Utilizes React FunctionComponents and React hooks
 - [x] Utilizes the CSS in JS library styled-components
 - [x] Includes database entries for roughly 75% of beer styles listed in the BJCP Style Guide
 
