@@ -1,45 +1,78 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
 # Beer Style Classifier
+Web application for filtering and classifying beers into possible beer styles based on their properties. Users enter different properties of a beer recipe such as bitterness in IBUs, color in SRM, and alcohol by volume ABV. The application checks these values against the characteristic ranges of values in the [BJCP Style Guide](https://www.bjcp.org/docs/2015_Guidelines_Beer.pdf). The application filters and lists any matching beer styles.
+
+There is a copy deployed to Heroku here: [beer-style-classifier.herokuapp.com](http://beer-style-classifier.herokuapp.com)
+
+## Utilized Web Stack
+- `User Interface` - CSS, styled-components
+- `Client` - React, TypeScript
+- `Server` - Node.js, Express, TypeScript, pg
+- `Database` - PostgreSQL
+
+## Requirements
+- Git
+- Web browser
+- Node
+- Nodemon
+- PostgreSQL
+- Heroku CLI (Optional for hosting on Heroku)
+
+## Setup and Run
+```bash
+# 1. Create PostgreSQL database named 'beer_style_classifier'
+createdb beer_style_classifier
+
+# 2. Create the database schema
+psql -E -f database_schema.sql -d beer_style_classifier
+
+# 3. Initalize database with style data
+psql -E -f database_data.sql -d beer_style_classifier
+
+# 4. Install Node dependencies/libraries using NPM
+npm install
+
+# 5. Start the server
+npm run server
+
+# 6. Start the client (runs locally on PORT 3000)
+npm run client
+```
+**See:** [localhost:3000](http://localhost:3000)
+
+## Deploying to Heroku
+
+```bash
+# 1. From the project directory run the following to setup Heroku
+heroku create
+
+# 2. Push the 'master' branch to the newly created 'heroku' remote
+git push heroku master
+
+# 3. Add Heroku addon for PostgreSQL databases
+heroku addons:create heroku-postgresql:hobby-dev
+
+# 4. Create the database schema for the remote database
+heroku pg:psql -f database_schema.sql
+
+# 5. Insert mock data for the remote database
+heroku pg:psql -f database_data.sql
+```
+
+## Features
+
+### Completed Features
+- [x] Allows users to search for matching beer styles based on a beer's International Bitterness Units (IBUs), color in Standard Reference Method units (SRM), original gravity (O.G.), final gravity (F.G.), and alcohol by volume (ABV)
+- [x] Utilizes TypeScript style JavaScript
+- [x] Utilizes React FunctionComponents
+- [x] Utilizes the CSS in JS library styled-components
+- [x] Includes database entries for roughly 75% of beer styles listed in the BJCP Style Guide
+
+### Planned Features
+- [ ] Allow filtering styles based on a list of characteristic ingredients (e.g. Belgian yeast, wheat, sucrose, Noble hop varieties)
+- [ ] Unit testing using Jest and Enzyme
+- [ ] Include 100% of beer styles listed in BJCP in database
+- [ ] Improve the aesthetics of the UI
+- [ ] Leverage styled-components to allow the user to quickly swap the theme and colors of the UI
+
+## Authors
+Michael Stockman
